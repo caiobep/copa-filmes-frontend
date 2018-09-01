@@ -32,7 +32,7 @@ export const title: CSSProperties = {
 export const subtitle: CSSProperties = {
   fontSize: "16px",
   textAlign: "center",
-  width: "800px",
+  padding: "0 10%",
   marginLeft: "auto",
   marginRight: "auto",
 }

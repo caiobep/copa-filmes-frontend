@@ -13,7 +13,7 @@ const MovieTitle = ({title, subtitle}: MovieTitle) => {
       <span style={styles.titleSupport}>Campeonato de filmes</span>
       <h1 style={styles.title}>{title}</h1>
       <div style={styles.whiteBar} />
-      <div style={styles.subtitle}>{subtitle}</div>
+      <p style={styles.subtitle}>{subtitle}</p>
     </div>
   )
 }

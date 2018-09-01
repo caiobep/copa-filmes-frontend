@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import Checkbox from '../Checkbox/Checkbox'
 import * as styles from './MovieSelector.styles'
 
 interface Props {
   title?: string,
   year?: Date | string,
-  checked?: boolean
+  checked: boolean,
+  onChange?: any
 }
 
 interface State {
@@ -13,17 +14,20 @@ interface State {
 }
 
 class MovieSelector extends React.Component<Props, State> {
-  state = {
-    checked: this.props.checked || false
-  }
 
-  toggleChecked = () => this.setState(prev => ({checked: !prev.checked}))
+  toggleChecked = (e: MouseEvent<HTMLDivElement>) => {
+    e.preventDefault()
+
+    if (this.props.onChange instanceof Function) {
+      this.props.onChange(e)
+    }
+  }
 
   render() {
     return (
       <div onClick={this.toggleChecked} style={styles.container}>
         <div style={styles.checkboxContainer}>
-          <Checkbox checked={this.state.checked}/>
+          <Checkbox checked={this.props.checked}/>
         </div>
         <div style={styles.movieDescription}>
           <h4 style={styles.title}>{this.props.title}</h4>
