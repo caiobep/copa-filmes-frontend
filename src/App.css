@@ -14,7 +14,7 @@ body {
 }
 
 .App > div {
-  flex-shrink: 0;
+  width: 90%;
 }
 
 .App-logo {

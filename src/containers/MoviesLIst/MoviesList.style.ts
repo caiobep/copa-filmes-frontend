@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 80%;
   padding: 3% 0;
-  /* margin: 50px */
 `
 
 export const MovieActions = styled.div`

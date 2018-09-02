@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  width: 80%;
-  height: 140px;
+  width: 100%;
+  height: 120px;
+  margin: 5px 0;
 `
 
 export const Position = styled.div`
@@ -22,7 +23,7 @@ export const Title = styled.div`
   color: #000000;
   width: 100%;
   padding-left: 20px;
-  font-size: 40px;
+  font-size: 32px;
   display: flex;
   justify-content: left;
   align-items: center;

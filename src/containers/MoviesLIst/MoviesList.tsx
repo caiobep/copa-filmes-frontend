@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
+import Button from '../../components/Button/Button'
 import MovieSelector from '../../components/MovieSelector/MovieSelector'
 import MovieTitle from '../../components/MovieTitle/MovieTitle'
 
-import { API_URL } from '../../App'
-import Button from '../../components/Button/Button'
+import { API_URL, IS_DEV_ENV } from '../../environment'
+import { Movie } from '../entities'
 import { 
   Container, 
   Description,
@@ -12,13 +13,6 @@ import {
   MovieListContainer
 } from './MoviesList.style'
 
-interface Movie {
-  id: string | number
-  title: string
-  year: any
-  rating: number
-  checked: boolean
-}
 
 interface State {
   movies: Movie[]
@@ -36,7 +30,13 @@ class MoviesList extends Component<Props, State> {
   }
   
   componentDidMount() {
-    fetch(`${API_URL}movies`)
+    fetch(`${API_URL}movies`, {
+      method: "GET",
+      mode: IS_DEV_ENV ? "cors" : "same-origin",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    })
     .then(response => response.json().then(data => {
         const movies = data.map(
           (m: Movie) => ({checked: false, ...m})
